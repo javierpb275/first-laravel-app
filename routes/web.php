@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/posts/{post}', function ($post) {
-    return $post;
+    $posts = [
+        'first-post' => 'Hello, this is my first blog post!',
+        'second-post' => 'And this is my second blog post!',
+    ];
+
+    return view('post', [
+       'post' => $posts[$post]
+    ]);
 });
 
