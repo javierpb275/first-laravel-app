@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('test', function () {
     $name = request('name');
-    return $name;
-    //return view('test');
+    return view('test', [
+        'name' => $name
+    ]);
 });
 

@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>TEST COMPLETE!</h1>
+    <h1><?= $name; ?></h1>
 </body>
 </html>
