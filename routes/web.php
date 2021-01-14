@@ -20,7 +20,7 @@ Route::get('/', function() {
 });
 
 Route::get('/about', function() {
-    $article = App\Models\Article::all();
+    $article = App\Models\Article::take(2)->get();
     return $article;
     return view('about');
 });
