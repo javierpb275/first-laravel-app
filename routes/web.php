@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ArticlesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,4 +25,4 @@ Route::get('/about', function() {
     ]);
 });
 
-Route::get('/articles/{article}', 'App\Http\Controllers\ArticlesController@show');
+Route::get('/articles/{article}', [ArticlesController::class, 'show']);
