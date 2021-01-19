@@ -25,6 +25,20 @@ Route::get('/about', function() {
     ]);
 });
 
+//GET /articles is for collection
 Route::get('/articles', [ArticlesController::class, 'index']);
 
+//GET /articles/:id is for a single article
 Route::get('/articles/{article}', [ArticlesController::class, 'show']);
+
+
+//We communicate by using the http verbs: GET, POST, PUT, DELETE
+
+//PUT /articles/:id is for update
+
+//POST /articles is for creating a new resource
+
+//DELETE /articles/:id is for delete
+
+
+
