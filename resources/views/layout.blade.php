@@ -22,6 +22,8 @@ Released   : 20140225
 
 <link href="/css/app.css" rel="stylesheet"/>
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css" rel="stylesheet"/>
+
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
 </head>
