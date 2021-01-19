@@ -30,6 +30,7 @@ Route::get('/articles', [ArticlesController::class, 'index']);
 
 //POST /articles is for creating a new resource
 Route::get('/articles/create', [ArticlesController::class, 'create']);
+Route::post('/articles', [ArticlesController::class, 'store']);
 
 //GET /articles/:id is for a single article
 Route::get('/articles/{article}', [ArticlesController::class, 'show']);

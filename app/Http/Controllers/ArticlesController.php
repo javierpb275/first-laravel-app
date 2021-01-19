@@ -35,6 +35,7 @@ class ArticlesController extends Controller
     public function store() {
 
         //Persists the new resource created
+        dump(request()->all());
         
     }
 
