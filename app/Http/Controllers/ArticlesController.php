@@ -66,6 +66,12 @@ class ArticlesController extends Controller
 
     public function update($id) {
 
+        request()->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+            'body' => 'required'
+        ]);
+
         //Persists the edited resource
         $article = Article::find($id);
 
