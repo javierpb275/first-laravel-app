@@ -32,13 +32,15 @@ Route::get('/articles', [ArticlesController::class, 'index']);
 Route::get('/articles/create', [ArticlesController::class, 'create']);
 Route::post('/articles', [ArticlesController::class, 'store']);
 
+//PUT /articles/:id is for update
+Route::get('/articles/{article}/edit', [ArticlesController::class, 'edit']);
+Route::put('/articles/{article}', [ArticlesController::class, 'update']);
+
 //GET /articles/:id is for a single article
 Route::get('/articles/{article}', [ArticlesController::class, 'show']);
 
 
 //We communicate by using the http verbs: GET, POST, PUT, DELETE
-
-//PUT /articles/:id is for update
 
 //DELETE /articles/:id is for delete
 
