@@ -16,11 +16,9 @@ class ArticlesController extends Controller
         return view('articles.index', ['articles' => $articles]);
     }
 
-    public function show($id) {
+    public function show(Article $article) {
 
         //Shows a single resource
-
-        $article = Article::findOrFail($id);
 
         return view('articles.show', ['article' => $article]);
     }
