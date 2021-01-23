@@ -51,18 +51,17 @@ class ArticlesController extends Controller
         
     }
 
-    public function edit($id) {
+    public function edit(Article $article) {
 
         //Shows a view to edit an existing resource
 
         //find the article associated with the id
-        $article = Article::findOrFail($id);
 
         return view('articles.edit', compact('article'));//compact('article') = ['article' => $article]
 
     }
 
-    public function update($id) {
+    public function update(Article $article) {
 
         request()->validate([
             'title' => 'required',
@@ -71,7 +70,6 @@ class ArticlesController extends Controller
         ]);
 
         //Persists the edited resource
-        $article = Article::findOrFail($id);
 
         $article->title = request('title');
         $article->excerpt = request('excerpt');

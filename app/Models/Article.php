@@ -8,9 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
-
-    public function getRouteKeyName()
-    {
-        return 'slug'; // Article::where('slug', $article)->first()
-    }
 }
