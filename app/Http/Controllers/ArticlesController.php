@@ -32,7 +32,7 @@ class ArticlesController extends Controller
 
     public function store() {
 
-        request()->validate([
+        $validatedAttributes = request()->validate([
             'title' => 'required',
             'excerpt' => 'required',
             'body' => 'required'
@@ -40,11 +40,7 @@ class ArticlesController extends Controller
 
         //Persists the new resource created
 
-        Article::create([
-        'title' => request('title'),
-        'excerpt' => request('excerpt'),
-        'body' => request('body')
-        ]);
+        Article::create($validatedAttributes);
 
         return redirect('/articles');
         
