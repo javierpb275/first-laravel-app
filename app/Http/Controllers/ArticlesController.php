@@ -20,7 +20,7 @@ class ArticlesController extends Controller
 
         //Shows a single resource
 
-        $article = Article::find($id);
+        $article = Article::findOrFail($id);
 
         return view('articles.show', ['article' => $article]);
     }
@@ -58,7 +58,7 @@ class ArticlesController extends Controller
         //Shows a view to edit an existing resource
 
         //find the article associated with the id
-        $article = Article::find($id);
+        $article = Article::findOrFail($id);
 
         return view('articles.edit', compact('article'));//compact('article') = ['article' => $article]
 
@@ -73,7 +73,7 @@ class ArticlesController extends Controller
         ]);
 
         //Persists the edited resource
-        $article = Article::find($id);
+        $article = Article::findOrFail($id);
 
         $article->title = request('title');
         $article->excerpt = request('excerpt');
