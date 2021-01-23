@@ -56,19 +56,13 @@ class ArticlesController extends Controller
 
     public function update(Article $article) {
 
-        request()->validate([
+        //Persists the edited resource
+
+        $article->update(request()->validate([
             'title' => 'required',
             'excerpt' => 'required',
             'body' => 'required'
-        ]);
-
-        //Persists the edited resource
-
-        $article->title = request('title');
-        $article->excerpt = request('excerpt');
-        $article->body = request('body');
-
-        $article->save();
+        ]));
 
         return redirect('/articles/' . $article->id);
 
