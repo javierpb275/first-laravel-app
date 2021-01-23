@@ -34,11 +34,7 @@ class ArticlesController extends Controller
 
         //Persists the new resource created
 
-        Article::create(request()->validate([
-            'title' => 'required',
-            'excerpt' => 'required',
-            'body' => 'required'
-        ]));
+        Article::create($this->validateArticle());
 
         return redirect('/articles');
         
@@ -58,11 +54,7 @@ class ArticlesController extends Controller
 
         //Persists the edited resource
 
-        $article->update(request()->validate([
-            'title' => 'required',
-            'excerpt' => 'required',
-            'body' => 'required'
-        ]));
+        $article->update($this->validateArticle());
 
         return redirect('/articles/' . $article->id);
 
@@ -72,6 +64,15 @@ class ArticlesController extends Controller
 
         //Delete the resource
 
+    }
+
+    protected function validateArticle() {
+
+        return request()->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+            'body' => 'required'
+        ]);
     }
 
 }
