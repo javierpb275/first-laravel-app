@@ -33,12 +33,13 @@ class ArticlesController extends Controller
     public function create() {
 
         //Shows a view to create a new resource
-        return view('articles.create');
+        return view('articles.create', ['tags' => Tag::all()]);
        
     }
 
     public function store() {
 
+        dd(request()->all());
         //Persists the new resource created
 
         Article::create($this->validateArticle());
