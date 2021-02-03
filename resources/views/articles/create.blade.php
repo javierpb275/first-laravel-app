@@ -55,7 +55,7 @@
 
                     <label class="label" for="body">Tags</label>
 
-                    <div class="control">
+                    <div class="select is-multiple control">
                         <select name="tags[]" multiple>
                             @foreach($tags as $tag)
                             <option value="{{$tag->id}}">{{$tag->name}}</option>

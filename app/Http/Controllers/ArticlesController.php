@@ -39,10 +39,15 @@ class ArticlesController extends Controller
 
     public function store() {
 
-        dd(request()->all());
+
         //Persists the new resource created
 
-        Article::create($this->validateArticle());
+        $this->validateArticle();
+        $article = new Article(request(['title', 'excerpt', 'body']));
+        $article->user_id = 1;//auth()->id()
+        $article->save();
+
+        $article->tags()->attach(request('tags'));
 
         return redirect(route('articles.index'));
         
@@ -79,7 +84,8 @@ class ArticlesController extends Controller
         return request()->validate([
             'title' => 'required',
             'excerpt' => 'required',
-            'body' => 'required'
+            'body' => 'required',
+            'tags' => 'exists:tags,id'
         ]);
     }
 
